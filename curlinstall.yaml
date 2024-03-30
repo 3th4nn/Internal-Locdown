@@ -1,0 +1,14 @@
+---
+- name: Install curl using apt
+  hosts: all
+  become: yes  # Run tasks with sudo privileges
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
